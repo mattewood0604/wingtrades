@@ -14,7 +14,7 @@ let config = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js', '.html'],
+    extensions: ['.ts', '.js', '.html', '.scss'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       'util': 'src/sass/main.scss'
@@ -40,11 +40,7 @@ let config = {
     ]
   },
   plugins: [
-    new NamedModulesPlugin(),
-    new CopyWebpackPlugin([{
-      from: 'src/assets',
-      to: './assets'
-    } ])
+    new NamedModulesPlugin()
   ]
 }
 
