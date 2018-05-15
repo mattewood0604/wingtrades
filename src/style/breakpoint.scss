@@ -1,0 +1,24 @@
+$breakpoints: (
+    mobile: $breakpoints-s * 1px,
+    tablet: $breakpoints-m * 1px,
+    small_desktop: $breakpoints-l * 1px,
+    large_desktop: $breakpoints-xl * 1px
+);
+
+$allowed-breakpoint-targets: inspect(map-keys($breakpoints));
+
+@function get-breakpoint($target) {
+    $breakpoint: map-get($breakpoints, $target);
+
+    @if $breakpoint == null {
+        @warn('You tried to respond_to \'#{$target}\'. Please use one of these available breakpoints - #{$allowed-breakpoint-targets}');
+    }
+
+    @return $breakpoint;
+}
+
+@mixin when-wider-than($target) {
+    @media screen and (min-width: get-breakpoint($target)) {
+        @content;
+    }
+}

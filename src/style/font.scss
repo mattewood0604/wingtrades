@@ -1,0 +1,33 @@
+@mixin font-type($name) {
+    $font-family: (
+        title_black: xfinity-light
+    );
+
+    $font-size: (
+        title_black: 1.25rem
+    );
+
+    $color: (
+        title_black: $cool-grey13
+    );
+
+    $line-height: (
+        title_black: 1.5
+    );
+
+    $letter-spacing: (
+        title_black: normal
+    );
+
+    $text-transform: (
+        title_black: none
+    );
+
+    font-family: map-get($font-family, $name);
+    font-size: map-get($font-size, $name);
+    color: map-get($color, $name);
+    line-height: map-get($line-height, $name);
+    letter-spacing: map-get($letter-spacing, $name);
+    text-transform: map-get($text-transform, $name);
+    font-weight: normal;
+}
